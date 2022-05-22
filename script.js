@@ -1,5 +1,5 @@
 const DEFAULT_SIZE = 16;
-const DEFAULT_COLOR = "red";
+const DEFAULT_COLOR = "orange";
 
 let currentColor = DEFAULT_COLOR;
 

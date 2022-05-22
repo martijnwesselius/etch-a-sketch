@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="etch_a_sketch.ico">
 </head>
 <body>
     
@@ -13,7 +14,17 @@
         Etch-A-Sketch
     </header>
 
-    <div class="conten">
+    <div class="content">
+        <div id="controls">
+            <button id="black-button">Black</button>
+            <button id="rainbow-button">Rainbow</button>
+            <button id="eraser-button">Eraser</button>
+            <button id="clear-button">Clear</button>
+            <div id="slider-container">
+                <p id="slider-value">16 x 16</p>
+                <input type="range" min="4" max="64" value="16" class="slider">
+            </div>
+        </div>
         <div id="grid"></div>
     </div>
 
