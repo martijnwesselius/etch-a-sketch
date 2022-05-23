@@ -43,6 +43,7 @@ footer {
     gap: 30px;
     background-color: var(--background-blue);
     border: 10px solid yellow;
+    border-radius: 16px;
     margin: 0 50px;
 }
 
@@ -59,6 +60,16 @@ button {
     border: 1px solid;
     border-radius: 5px;
     padding: 10px;
+    transition: all .2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.active {
+    color: var(--sketchpad_red);
+    background-color: var(--logo-yellow);
 }
 
 #slider-value {
