@@ -42,17 +42,12 @@ function setCurrentMode(newMode) {
     currentMode = newMode;
 }
 
-function setupGrid(size) {
-    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+function updateSliderValue(value) {
+    sliderValue.textContent = `${value} x ${value}`;
+}
 
-    for (let i = 0; i < size * size; i++) {
-        const gridElement = document.createElement('div');
-        gridElement.classList.add("grid-element");
-        gridElement.addEventListener("mouseover", changeColor);
-        gridElement.addEventListener("mousedown", changeColor);
-        grid.appendChild(gridElement);
-    }
+function getRandomColor() {
+    return '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
 }
 
 function changeColor(e) {
@@ -70,22 +65,17 @@ function changeColor(e) {
     }
 }
 
-function reloadGrid() {
-    grid.innerHTML = "";
-    setupGrid(currentSize);
-}
+function setupGrid(size) {
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-function changeSizeGrid(sliderValue) {
-    setCurrentSize(sliderValue);
-    reloadGrid();
-}
-
-function updateSliderValue(value) {
-    sliderValue.textContent = `${value} x ${value}`;
-}
-
-function getRandomColor() {
-    return '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+    for (let i = 0; i < size * size; i++) {
+        const gridElement = document.createElement('div');
+        gridElement.classList.add("grid-element");
+        gridElement.addEventListener("mouseover", changeColor);
+        gridElement.addEventListener("mousedown", changeColor);
+        grid.appendChild(gridElement);
+    }
 }
 
 function activateButton(newMode) {
@@ -105,6 +95,18 @@ function activateButton(newMode) {
         eraserButton.classList.add("active");
     }
 }
+
+function reloadGrid() {
+    grid.innerHTML = "";
+    setupGrid(currentSize);
+}
+
+function changeSizeGrid(sliderValue) {
+    setCurrentSize(sliderValue);
+    reloadGrid();
+}
+
+
 
 setupGrid(DEFAULT_SIZE);
 activateButton(DEFAULT_MODE);
