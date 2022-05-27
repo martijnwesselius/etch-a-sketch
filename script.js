@@ -96,7 +96,7 @@ function activateButton(newMode) {
     } else if (currentMode === "eraser") {
         eraserButton.classList.remove("active");
     }
-
+    
     if (newMode === "color") {
         blackButton.classList.add("active");
     } else if (newMode === "rainbow") {
